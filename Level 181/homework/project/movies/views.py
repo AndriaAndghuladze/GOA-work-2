@@ -41,3 +41,11 @@ def index(request):
 def movie_list(request):
     context = {'movies': movies_database}
     return render(request, 'movies/movie_list.html', context)
+
+def movie_detail(request, movie_id):    
+
+    movie = next((movie for movie in movies_database if movie["id"] == movie_id), None)
+    if movie is None:
+        return render(request, 'movies/movie_not_found.html', status=404)
+    context = {'movie': movie}
+    return render(request, 'movies/movie_detail.html', context)
