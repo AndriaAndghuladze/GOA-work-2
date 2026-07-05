@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Main(models.model):
+class Review(models.Model):
     title = models.CharField()
-    price = models.CharField()
-    category = models.CharField()
+    description = models.CharField()
+    rating = models.IntegerField()
