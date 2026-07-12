@@ -10,7 +10,7 @@
     <ul>
         {% for phone in phones %}
             <li>
-                <a href="{% url 'phone_detail' phone.id %}">{{ phone.name }}</a>
+                <a href="{% url 'phone_detail' phone.id %}">{{ phone.brand}}</a>
             </li>
         {% endfor %}
     </ul>

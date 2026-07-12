@@ -1,6 +1,6 @@
 from urllib import request
 
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 from .models import Phone
 
@@ -9,7 +9,7 @@ def phone(request):
     context = {
         'phones': Phone.objects.all()
     }
-    return render(request, 'phone/phone.html', context)
+    return render(request, 'phone.html', context)
 
 
 def phone_delete(request, id):
@@ -18,11 +18,11 @@ def phone_delete(request, id):
     context = {
         'phones': Phone.objects.all()
     }
-    return render(request, 'phone/phone.html', context)
+    return redirect('phone')
 
 def phone_detail(request, id):
     phone = Phone.objects.get(id=id)
     context = {
         'phone': phone
     }
-    return render(request, 'phone/phone_detail.html', context)
+    return render(request, 'phone_detail.html', context)
