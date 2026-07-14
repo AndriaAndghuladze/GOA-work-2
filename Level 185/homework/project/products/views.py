@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Register
 
 # Create your views here.
-def Register(request):
+def Register_view(request):
     if request.method == 'POST':
         
         username = request.POST.get('username')
