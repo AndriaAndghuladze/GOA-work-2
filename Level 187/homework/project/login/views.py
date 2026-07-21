@@ -65,4 +65,4 @@ def edit_profile(request):
                 current_user.save()
             
         
-            return render(request, 'index.html')
+            return render(request, 'index.html', context)
