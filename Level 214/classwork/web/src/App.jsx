@@ -1,5 +1,6 @@
 import api from "./api/axsios";
 import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
   const [tasks, setTasks] = useState([]);
