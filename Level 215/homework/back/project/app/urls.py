@@ -1,7 +1,11 @@
-from django.urls import path
-from . import views
+from rest_framework.routers import DefaultRouter
+from .views import TaskViewSet
+from django.urls import path, include
+
+# თავისით ქმნის საჭირო endpoint ებს viewset ისთვის
+router = DefaultRouter()
+router.register('tasks', TaskViewSet, basename='task')
 
 urlpatterns = [
-    path('tasks/', views.task_view),
-    path('task_delete/<int:pk>/', views.task_delete_view),
+    path('', include(router.urls))
 ]

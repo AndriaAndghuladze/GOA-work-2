@@ -1,5 +1,6 @@
 import api from "./api/axsios"
 import { useState, useEffect } from "react"
+import './App.css'
 
 function App() {
   const [tasks, setTasks] = useState([])
@@ -22,7 +23,7 @@ function App() {
   
   const handleDelete = async (id) => {
     await api.delete(`tasks/${id}/`)
-    setTasks(prev => prev.filter(tsk => tsk.id !== id))
+    setTasks(prev => prev.filter(task => task.id !== id))
   }
   
   useEffect(() => {
@@ -37,7 +38,7 @@ function App() {
     setEditingTaskID(null)
     setEditingValue('')
     setTasks(prev => {
-      const changeIndex = prev.findIndex(tsk => tsk.id == editingTaskID)
+      const changeIndex = prev.findIndex(task => task.id == editingTaskID)
       prev[changeIndex] = response.data 
       return prev
     })
